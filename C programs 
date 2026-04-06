@@ -1,0 +1,279 @@
+1.
+
+#include<stdio.h>
+
+// Prototype
+void greet(void);
+
+int main()
+{
+    greet();    // Function call
+    return 0;
+}
+
+// Definition
+void greet(void)
+{
+    printf("Hello! Welcome to C Programming!\n");
+    printf("This function has no arguments and no return v>
+}
+
+2.
+
+
+#include<stdio.h>
+
+void counter()
+{
+    static int count = 0;  // retains value!
+    count++;
+    printf("Count = %d\n", count);
+}
+
+int main()
+{
+    counter();   // Count = 1
+    counter();   // Count = 2
+    counter();   // Count = 3
+    return 0;
+}
+
+
+3.
+
+
+#include<stdio.h>
+
+int global = 100;    // Global: visible everywhere
+
+void demo()
+{
+    int local = 50;  // Local: visible only in demo()
+    printf("Local = %d\n", local);
+    printf("Global = %d\n", global);
+}
+
+int main()
+{
+    demo();
+    printf("Global = %d\n", global);
+    // printf("%d", local); // ERROR! local not visible he>
+    return 0;
+}
+
+
+4.
+
+
+#include<stdio.h>
+
+void add(void);
+
+int main()
+{
+    add();
+    return 0;
+}
+
+void add(void)
+{
+    int a, b, sum;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    sum = a + b;
+    printf("Sum = %d\n", sum);
+}
+
+5.
+
+
+#include<stdio.h>
+
+// Prototype
+int getSum(void);
+
+int main()
+{
+    int result;
+    result = getSum();    // receives returned value
+    printf("Sum = %d\n", result);
+    return 0;
+}
+
+// Definition
+int getSum(void)
+{
+    int a, b, sum;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    sum = a + b;
+    return sum;    // returns sum to main
+}
+
+6.
+
+
+#include<stdio.h>
+int main (){
+ int r,c,a[r][c],b[r][c],sum[r][c],i,j;
+ printf("\n enter the number of rows and columns respectly: \n");
+ scanf("%d%d",&r,&c);
+
+ // Matrix-1
+
+ printf("\n Enter elements of 1st matrix:\n");
+  for (i=0;i<r;++i)
+   for(j=0;j<c;++j){
+      printf("\n Enter element a%d%d:",i+1,j+1);
+      scanf("%d",&a[i][j]);
+    }
+
+ // Matrix-2
+
+ printf("\n Enter elements of 2nd matrix:\n");
+  for (i=0;i<r;++i)
+   for (j=0;j<c;++j){
+     printf("\n Enter element b%d%d:",i+1,j+1);
+     scanf("%d",&b[i][j]);
+   }
+
+ //adding the matrix now
+  for(i=0;i<r;++i)
+   for(j=0;j<c;++j){
+     sum[i][j]=a[i][j]+b[i][j];
+   }
+ printf("Program is complete");
+ return 0;
+}
+
+
+7.
+
+
+#include <stdio.h>
+int main() {
+  int i,j,a[3][3],b[3][3],sum[3][3];
+  printf("\n enter the elements of 1st matrix \n");
+  for (i=0;i<3;++i)
+    for (j=0;j<3;++j){
+     printf("Enter element a%d%d :" ,i+1,j+1);
+     scanf("%d",& a[i][j]);
+     }
+  printf("\n enter the elements of 2nd matrix \n");
+  for (i=0;i<3;++i)
+    for (j=0;j<3;++j){
+      printf("Enter element b%d%d :" ,i+1,j+1);
+      scanf("%d",&b[i][j]);
+      }
+  printf(" The adding is in process ");
+  for (i=0;i<3;++i)
+    for (j=0;j<3;++j){
+      sum[i][j]=a[i][j]+b[i][j];
+      }
+  printf(" /n the addition of the given two matrires is: \n ");
+  for (i=0;i<3;++i){
+    for (j=0;j<3;++j){
+     printf("%d",sum[j][j]);
+     }
+     printf("\n");
+     }
+  printf(" program is complete");
+   return 0;
+}
+
+8.
+
+
+#include <stdio.h>
+int main()
+ {
+  int a[3][3],b[3][3],mul[3][3],i,j,k;
+// matrix-1
+  printf("Enter elements of the matrix 1:");
+  for(i=0;i<3;++i)
+    for(j=0;j<3;++j){
+      printf(" Enter element a%d%d:" , i+1,j+1);
+      scanf("%d",& a[i][j]);
+// matrix-2
+  printf("Enter element of the matrix 2:");
+  for(i=0;i<3;++i)
+    for(j=0;j<3;++j){
+      printf(" Enter element b%d%d:", i+1,j+1);
+      scanf("%d",&b[i][j]);
+     }
+// multipling matrices
+  for(i=0;i<3;++i){
+    for(j=0;j<3;++j){
+      for(k=0;k<3;++k){
+        mul[i][j]=a[i][k]*b[j][k];
+       }
+      }
+     }
+// printing result
+  printf(" \n Multiplution of matrices: \n ");
+  for(i=0;i<3;++i)
+    for(j=0;j<3;++j) {
+      printf("%d", mul[i][j]);
+
+      }
+     printf("\n");
+    return 0;
+ }
+
+9.
+
+
+#include <stdio.h>
+int main(){
+ char str1[100], str2[100], copiedStr[100];
+ char concatStr[200];
+ int length=0;
+ int i=0, j=0;
+
+ printf("Enter the first string:");
+ scanf("%s", str1);
+
+ printf("Enter the second string:");
+ scanf("%s", str2);
+
+ i=0;
+ while (str1[i] != '\0'){
+  copiedStr[i] = str1[i];
+  i++ ;
+ }
+ copiedStr[i] = '\0';
+ printf("copied string: %s\n " , copiedStr);
+
+ while (str1[length] != '\0') {
+  length++;
+ }
+ printf("length of the first string: %d\n ",length);
+
+ while (str1[i]!='\0'){
+  concatStr [i] = str1[i];
+  i++;
+ }
+  j=0;
+ while (str2[j] != '\0') {
+  concatStr[i] = str2[j];
+  i++;
+  j++;
+ }
+ concatStr[i]='\0';
+ printf("Concatenated string: %s\n ",concatStr);
+ return 0 ;
+}
+
+
+10.
+
+
+
+#include <stdio.h>
+int a;
+int main(){
+ extern int a;
+ printf("%d",a);
+ }
+
+
